@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:text="${title}"></title>
+</head>
+<body class="bg-gray-100 font-sans">
+    <h1 th:text="${title}"></h1>
+    <h3 th:text="${token}"></h3>
+    
+    <table border="1">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Dueño</th>
+            <th>Clausula</th>
+            <th>Clausula Abierta</th>
+            <th>Invested</th>
+            <th>Fecha</th>
+            <th>Precio</th>
+        </tr>
+    </thead>
+    <tbody th:if="${players != null and !players.isEmpty()}">
+	    <tr th:each="p : ${players}">
+		    <td th:text="${p.playerName}"></td>
+		    <td th:text="${p.owner}"></td>
+		    <td th:text="${p.clause}"></td>
+		    <td th:text="${p.clauseLockedUntil}"></td>
+		    <td th:text="${p.invested}"></td>
+		    <td th:text="${p.date}"></td>
+		    <td th:text="${p.price}"></td>
+		</tr>
+	</tbody>
+	
+	<tbody th:if="${players == null}">
+	    <tr>
+	        <td colspan="2">No hay jugadores</td>
+	    </tr>
+	</tbody>
+
+</table>
+    
+</body>
+</html>

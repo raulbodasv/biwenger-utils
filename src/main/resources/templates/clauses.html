@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+	<head>
+	    <meta charset="UTF-8">
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	    <script src="https://unpkg.com/jquery@3.5.1/dist/jquery.min.js"></script>
+	    <script src="https://unpkg.com/gridjs-jquery/dist/gridjs.development.js"></script>
+	    <link rel="stylesheet" type="text/css" href="https://unpkg.com/gridjs/dist/theme/mermaid.min.css"/>
+	    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+	    <title th:text="${title}"></title>
+	</head>
+	<body>
+	    <h1 th:text="${title}"></h1>
+	    
+	    <div id="tabla_clausulas"></div>
+	    
+	    <script th:inline="javascript">
+		    /*<![CDATA[*/
+		    const players = [[${players}]];
+		    /*]]>*/
+		</script>
+	    
+	    <script>
+	      $("div#tabla_clausulas").Grid({
+	        search: true,
+	        sort: true,
+	        columns: ["Nombre del Jugador", "Propietario del Jugador", "Precio de la Clausula", "Fecha de Apertura de Clausula", "Dinero Agregado a la Clausula", "Precio del Jugador"],
+	        data: players.map(p => [
+	            p.playerName,
+	            p.owner,
+	            p.clause.toLocaleString('es-ES'),
+	            p.clauseLockedUntil,
+	            p.invested,
+	            p.price.toLocaleString('es-ES')
+	        ])
+	      });
+	    </script>
+	    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+	</body>
+</html>
