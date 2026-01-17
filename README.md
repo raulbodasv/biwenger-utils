@@ -14,5 +14,5 @@
   
 ![Java](https://img.shields.io/badge/Java-007396?style=flat&logo=java&logoColor=white)
 ![Spring Boot](https://img.shields.io/badge/Spring%20Boot-6DB33F?style=flat&logo=springboot&logoColor=white)
-![JavaScript]([https://img.shields.io/badge/javascript-yellow?logo=javascript])
+![JavaScript](https://img.shields.io/badge/javascript-yellow?logo=javascript)
 ![Thymeleaf](https://img.shields.io/badge/Thymeleaf-005F0F?style=flat&logo=thymeleaf&logoColor=white)
